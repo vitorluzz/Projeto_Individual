@@ -37,7 +37,7 @@ function listarPorUsuario(idUsuario) {
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql, [idUsuario]);
+    return database.executar(instrucaoSql);
 }
 
 function inserirPontuacao(idUsuario, pontos, tempoGasto, porcentagemAcertos) {
@@ -45,11 +45,11 @@ function inserirPontuacao(idUsuario, pontos, tempoGasto, porcentagemAcertos) {
         INSERT INTO Resultado (fkUsuario, pontos, tempo, porcentagemAcertos) 
         VALUES (${idUsuario}, ${pontos}, ${tempoGasto}, ${porcentagemAcertos});
     `;
-    return database.executar(instrucaoSql, [idUsuario, pontos, tempoGasto, porcentagemAcertos]);
+    return database.executar(instrucaoSql);
 }
 
 
-function editar(pontos, tempoGasto, porcentagemAcertos, idUsuario) {
+function editar(idUsuario, pontos, tempoGasto, porcentagemAcertos) {
     console.log("ACESSEI O Modelo Resultado - editar()\n");
 
     var instrucaoSql = `
@@ -63,7 +63,7 @@ function editar(pontos, tempoGasto, porcentagemAcertos, idUsuario) {
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql, [pontos, tempo, porcentagemAcertos, idUsuario]);
+    return database.executar(instrucaoSql);
 }
 
 function listar10Melhores() {
@@ -75,10 +75,7 @@ var instrucaoSql = `
         limit 10;
 `;
 
-
-
 console.log("Executando a instrução SQL: \n" + instrucaoSql);
-
 
 return database.executar(instrucaoSql);
 

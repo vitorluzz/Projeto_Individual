@@ -24,8 +24,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
-router.post("/listar10Melhores", function () {
-    pesquisaController.listar10Melhores();
+router.get("/listar10Melhores", function (req, res) {
+    pesquisaController.listar10Melhores(req, res);
 });
 
 module.exports = router;
